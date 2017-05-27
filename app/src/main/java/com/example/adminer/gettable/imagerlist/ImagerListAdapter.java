@@ -46,7 +46,7 @@ public class ImagerListAdapter extends BaseAdapter implements AbsListView.OnScro
     /**
      * 在ListView滚动时加载
      */
-    public static final int LOADING_AT_ONSCROLL = 2;
+    public static final int LOADING_AT_ONSCROLL = 3;
 
     /**
      * 什么时候加载图片
