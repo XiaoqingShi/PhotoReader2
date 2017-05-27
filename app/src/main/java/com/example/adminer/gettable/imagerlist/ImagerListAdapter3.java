@@ -127,7 +127,7 @@ public class ImagerListAdapter3 extends BaseAdapter implements AbsListView.OnScr
 
 
     static class ViewHolder {
-        ImageView imageview6;
+        ImageView imageview;
     }
 
     private void startLoadImages(int first, int total) {
