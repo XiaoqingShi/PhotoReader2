@@ -130,7 +130,7 @@ public class ImagerListAdapter3 extends BaseAdapter implements AbsListView.OnScr
         ImageView imageview;
     }
 
-    private void startLoadImages(int first, int totael) {
+    private void startLoadImages(int first, int total) {
         Log.v(TAG, "imagedown--->startLoadImages,first-->" + first + ",total-->" + total);
         for (int i = first; i < first + total; i++) {
             ImageUtils.loadImage(imageThumbUrls[i], listView);
