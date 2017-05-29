@@ -82,28 +82,7 @@
                 android:text="女" />
         </RadioGroup>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <TextView
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="生日" />
-        <TextView
-            android:textColor="@color/black"
-            android:id="@+id/tv_birthday"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content" />
-        <Button
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="choose_birthday"
-            android:text="选择生日" />
-    </LinearLayout>
 
 
     <LinearLayout
@@ -123,6 +102,25 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邮箱" />
+
+        <EditText
+            android:textColor="@color/black"
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
     <Button
         android:textColor="@color/black"
         android:id="@+id/btn_register"
