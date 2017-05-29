@@ -11,42 +11,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.example.adminer.gettable.R;
 import com.example.adminer.gettable.dao.User;
 import com.example.adminer.gettable.view.GifView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-import htmlviewer.tools.Tools;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
 
     private Button btn_login;
     private Button btn_loading;
+
     TextView textView;
-    private VideoView myVideoView;
-    User user;
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            String edit = msg.obj.toString();
-            String success = "成功";
+            User user = (User) msg.obj;
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            Toast.makeText(LoginActivity.this, msg.obj.toString(), Toast.LENGTH_LONG).show();
-            if (success.equals(edit)) {
                 startActivity(intent);
-            }
-
+                Log.d("FUCK33","CHENGGONG");
         }
     };
 
@@ -76,65 +65,28 @@ public class LoginActivity extends AppCompatActivity {
                 final String name = ed_user.getText().toString();
                 final String pass = ed_pass.getText().toString();
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+
+
                 new Thread() {
                     @Override
                     public void run() {
                         String path = "http://125.217.32.224:8080/PhotoRecognition/login?username=" + name + "&password=" + pass;
                         try {
-                            URL url = new URL(path);
-                            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                            conn.setRequestMethod("GET");
-                            conn.setReadTimeout(8000);
-                            conn.setConnectTimeout(8000);
-
-                            if (conn.getResponseCode() == 200) {
-                                String title = "null";
-                                InputStream is = conn.getInputStream();
-                                String text = Tools.getTextFromStream(is);
-                                Message msg = handler.obtainMessage();
-                                Log.d("FUCK",is+"afei2");
-                                Document doc = Jsoup.connect(path).get();
-                                Elements element = doc.select("div.unit");
-                                for (Element ele : element) {
-                                    title = ele.getElementsByTag("h1").first().text();
-                                }
-                                msg.obj = title;
-                                handler.sendMessage(msg);
-                            }
-                        } catch (IOException e) {
+                            OkHttpClient client = new OkHttpClient();
+                            Request request = new Request.Builder().url(path).build();
+                            Response response = client.newCall(request).execute();
+                            String responseData = response.body().string();
+                            parseJSONWithGSON(responseData);
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
 
                 }.start();
 
-//                new Thread() {
-//                    @Override
-//                    public void run() {
-//                        String path = "http://125.217.32.224:8080/PhotoRecognition/login?username=" + name + "&password=" + pass;;
-//                        try {
-//
-//                            OkHttpClient client = new OkHttpClient();
-//                            Request request = new Request.Builder().url(path).build();
-//                            Response response = client.newCall(request).execute();
-//                            String responseData = response.body().string();
-//                            parseJSONWithGSON(responseData);
-//                            jsonString = requestJson();
-//                            data = new Gson().fromJson(jsonString, new TypeToken<List<Photo>>() {
-//                            }.getType());
-//                            listview.onRefreshComplete(true);
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                            listview.onRefreshComplete(false);
-//                        }
-//                    }
-//
-//                }.start();
-
             }
         });
+
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,28 +95,33 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    public void parseJSONWithGSON(String jsondata) {
+        if(jsondata.equals("null")) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(LoginActivity.this,"密码错误",Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+        else
+        {
+            User user;
+            Gson gson = new Gson();
+            user = gson.fromJson(jsondata, new TypeToken<User>() {
+            }.getType());
+            Message msg = handler.obtainMessage();
+            msg.obj = user;
+            handler.sendMessage(msg);
+        }
+    }
+
     private GifView gif1;
     private GifView gif2;
     public void viewBackground(){
-       /* myVideoView = (VideoView) findViewById(R.id.videoView);
-        final String videoPath = Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.test_1).toString();
-        myVideoView.setVideoPath(videoPath);
-        myVideoView.start();
-        myVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mp.start();
-                mp.setLooping(true);
-            }});
-        myVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                myVideoView.setVideoPath(videoPath);
-                myVideoView.start();
-            }
-        });*/
         gif1 = (GifView) findViewById(R.id.gif1);
-        // 设置背景gif图片资源
         gif1.setMovieResource(R.raw.test2);
     }
 }

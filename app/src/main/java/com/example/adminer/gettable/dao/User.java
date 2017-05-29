@@ -6,16 +6,7 @@ package com.example.adminer.gettable.dao;
 
 public class User {
 
-    public User(int id, String username, String password, String sex, String email, String phonenumber, int score, int mission) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.sex = sex;
-        this.email = email;
-        this.phonenumber = phonenumber;
-        this.score = score;
-        this.mission = mission;
-    }
+
 
     private int id;
     private String username;
