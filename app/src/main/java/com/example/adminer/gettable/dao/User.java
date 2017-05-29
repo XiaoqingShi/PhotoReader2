@@ -1,10 +1,12 @@
 package com.example.adminer.gettable.dao;
 
+import java.io.Serializable;
+
 /**
  * Created by adminer on 2017/5/29.
  */
 
-public class User {
+public class User implements Serializable{
 
 
 

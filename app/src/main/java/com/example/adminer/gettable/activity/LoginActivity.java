@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,14 +33,18 @@ public class LoginActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             User user = (User) msg.obj;
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                Log.d("FUCK33","CHENGGONG");
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("user",user);
+            intent.putExtras(bundle);
+            startActivity(intent);
+
         }
     };
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_login);
         viewBackground();
