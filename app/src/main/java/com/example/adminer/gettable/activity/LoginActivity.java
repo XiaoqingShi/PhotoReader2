@@ -14,11 +14,11 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.adminer.gettable.R;
+import com.example.adminer.gettable.dao.User;
 import com.example.adminer.gettable.view.GifView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -34,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_login;
     private Button btn_loading;
     TextView textView;
-private VideoView myVideoView;
-
+    private VideoView myVideoView;
+    User user;
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -109,6 +109,30 @@ private VideoView myVideoView;
                     }
 
                 }.start();
+
+//                new Thread() {
+//                    @Override
+//                    public void run() {
+//                        String path = "http://125.217.32.224:8080/PhotoRecognition/login?username=" + name + "&password=" + pass;;
+//                        try {
+//
+//                            OkHttpClient client = new OkHttpClient();
+//                            Request request = new Request.Builder().url(path).build();
+//                            Response response = client.newCall(request).execute();
+//                            String responseData = response.body().string();
+//                            parseJSONWithGSON(responseData);
+//                            jsonString = requestJson();
+//                            data = new Gson().fromJson(jsonString, new TypeToken<List<Photo>>() {
+//                            }.getType());
+//                            listview.onRefreshComplete(true);
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                            listview.onRefreshComplete(false);
+//                        }
+//                    }
+//
+//                }.start();
+
             }
         });
         textView.setOnClickListener(new View.OnClickListener() {
