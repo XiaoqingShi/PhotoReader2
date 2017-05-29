@@ -1,12 +1,11 @@
 package com.example.adminer.gettable.activity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,9 +63,9 @@ private VideoView myVideoView;
 
         btn_loading.setOnClickListener(new View.OnClickListener() {
 
-
             @Override
             public void onClick(View v) {
+
 
                 EditText ed_user;
                 EditText ed_pass;
@@ -82,7 +81,7 @@ private VideoView myVideoView;
                 new Thread() {
                     @Override
                     public void run() {
-                        String path = "http://125.217.32.32:8080/PhotoRecognition/login?username=" + name + "&password=" + pass;
+                        String path = "http://125.217.32.224:8080/PhotoRecognition/login?username=" + name + "&password=" + pass;
                         try {
                             URL url = new URL(path);
                             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -95,7 +94,7 @@ private VideoView myVideoView;
                                 InputStream is = conn.getInputStream();
                                 String text = Tools.getTextFromStream(is);
                                 Message msg = handler.obtainMessage();
-
+                                Log.d("FUCK",is+"afei2");
                                 Document doc = Jsoup.connect(path).get();
                                 Elements element = doc.select("div.unit");
                                 for (Element ele : element) {
