@@ -2,5 +2,9 @@
     {
         "merged": "E:\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_launcher.png",
         "source": "E:\\PhotoReader2\\VolleyDemo\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
     }
 ]

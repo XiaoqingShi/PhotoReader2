@@ -4,16 +4,36 @@
         "source": "E:\\PhotoReader2\\VolleyDemo\\src\\main\\res\\layout\\image_items.xml"
     },
     {
+        "merged": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\layout\\image_items.xml",
+        "source": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\src\\main\\res\\layout\\image_items.xml"
+    },
+    {
+        "merged": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\layout\\actvity_imager_list.xml",
+        "source": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\src\\main\\res\\layout\\actvity_imager_list.xml"
+    },
+    {
         "merged": "E:\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\layout\\activity_textdata.xml",
         "source": "E:\\PhotoReader2\\VolleyDemo\\src\\main\\res\\layout\\activity_textdata.xml"
+    },
+    {
+        "merged": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\layout\\activity_imageviewdata.xml",
+        "source": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\src\\main\\res\\layout\\activity_imageviewdata.xml"
     },
     {
         "merged": "E:\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\layout\\activity_imageviewdata.xml",
         "source": "E:\\PhotoReader2\\VolleyDemo\\src\\main\\res\\layout\\activity_imageviewdata.xml"
     },
     {
+        "merged": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\layout\\activity_textdata.xml",
+        "source": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\src\\main\\res\\layout\\activity_textdata.xml"
+    },
+    {
         "merged": "E:\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "E:\\PhotoReader2\\VolleyDemo\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
         "merged": "E:\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\layout\\actvity_imager_list.xml",

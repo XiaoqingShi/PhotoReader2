@@ -2,5 +2,9 @@
     {
         "merged": "E:\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "E:\\PhotoReader2\\VolleyDemo\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "C:\\Users\\adminer\\Desktop\\PhotoReader2\\VolleyDemo\\src\\main\\res\\menu\\main.xml"
     }
 ]
